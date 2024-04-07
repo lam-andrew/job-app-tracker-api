@@ -4,6 +4,7 @@ from datetime import date
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from models import db, JobApplication
+from sqlalchemy import text
 
 app = Flask(__name__)
 CORS(app)
@@ -24,7 +25,7 @@ def hello():
 def test_db_connection():
     try:
         # Assuming you have a simple query that tests the DB connection
-        some_test_query_result = db.session.execute('SELECT 1').scalar()
+        some_test_query_result = db.session.execute(text('SELECT 1')).scalar()
         return jsonify({"message": "Database connection successful"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500

@@ -18,4 +18,4 @@ class JobApplication(db.Model):
     benefits = db.Column(db.ARRAY(db.String), nullable=True)
     application_status = db.Column(db.String(50), nullable=False)
     application_link = db.Column(db.Text, nullable=True)
-    additional_details = db.Column(db.JSONB, nullable=True)
+    additional_details = db.Column(JSONB, nullable=True)
