@@ -26,6 +26,7 @@ def test_db_connection():
     try:
         # Assuming you have a simple query that tests the DB connection
         some_test_query_result = db.session.execute(text('SELECT 1')).scalar()
+        print(f"DB QUERY RESULT: {some_test_query_result}")
         return jsonify({"message": "Database connection successful"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
