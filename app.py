@@ -139,120 +139,121 @@ contains_extra_fields_for_later = '''
     }
     '''
 
-current_date = date.today()
-
-job_desc_input='''
-Software Developer- job post
-Sherman Buildings
-Remote
-$40 - $50 an hour - Part-time, Contract
-Sherman Buildings
-Remote
-$40 - $50 an hour
-Profile insights
-Your profile might be missing qualifications mentioned in the job description
-Skills
-
-VBA
-
-APIs
-
-Software troubleshooting
-+ show more
-
-Do you have experience in VBA?
-&nbsp;
-Job details
-Here’s how the job details align with your profile.
-Pay
-
-$40 - $50 an hour
-Job type
-
-Part-time
-
-Contract
-Shift and schedule
-
-Choose your own hours
-Encouraged to apply
-Fair chance
-&nbsp;
-Full job description
-
-Simplify
-Simplify
-3 of 10 keywords
-Beta
-30%
-resume match
-About us
-
-We are a family owned construction company focused on using technology to improve Teamwork, Safety, Quality, and Efficiency.
-
-We build the best tools we can for our in-house crews, then turn around and share those tools with our industry of small residential accessory building contractors.
-
-Develop from Home
-
-Job Overview:
-
-We are seeking an ambitious junior freelance software developer to join our team. Features will initially be provided by a manager, but could be developed independently in collaboration with salespeople, job foremen and administrators if you'd like to become more involved.
-
-Duties:
-
-- Develop and maintain our in-house construction, construction management, and HR applications. These are written in Excel, Excel VBA, Ruby on Rails, Heroku, S3, Sketchup, and Ruby for Sketchup.
-
-- Ruby is hosted on Github. Excel and VBA are currently accessed via Sharepoint.
-
-- One Goal is to transition all Excel & VBA to RoR
-
-- Write clean, efficient, and well-documented code
-
-- Conduct thorough testing and debugging of software applications
-
-- Integrate software components and third-party APIs
-
-- Troubleshoot and resolve software defects and issues
-
-- Participate in code reviews to ensure code quality and adherence to coding standards
-
-- interest in AI for productivity
-
-Skills:
-
-- Web Development with interest in RoR and Excel
-
-- Experience with version control: Git and very basic Sharepoint
-
-- Knowledge of application development methodologies and best practices
-
-- Problem-solving and analytical skills
-
-- Strong attention to detail and ability to prioritize tasks
-
-If you are a junior freelance developer looking for an opportunity to work on innovative projects, we would love to hear from you. Apply now to join our dynamic team!
-
-Job Types: Part-time, Contract
-
-Pay: $40.00 - $50.00 per hour
-
-Expected hours: 8 – 32 per week
-
-Compensation package:
-
-1099 contract
-Bonus opportunities
-Hourly pay
-Experience level:
-
-1 year
-2 years
-Schedule:
-
-Choose your own hours
-People with a criminal record are encouraged to apply
-
-Work Location: Remote
-'''
-
 app.run(host="127.0.0.1")
+
+
+# current_date = date.today()
+
+# job_desc_input='''
+# Software Developer- job post
+# Sherman Buildings
+# Remote
+# $40 - $50 an hour - Part-time, Contract
+# Sherman Buildings
+# Remote
+# $40 - $50 an hour
+# Profile insights
+# Your profile might be missing qualifications mentioned in the job description
+# Skills
+
+# VBA
+
+# APIs
+
+# Software troubleshooting
+# + show more
+
+# Do you have experience in VBA?
+# &nbsp;
+# Job details
+# Here’s how the job details align with your profile.
+# Pay
+
+# $40 - $50 an hour
+# Job type
+
+# Part-time
+
+# Contract
+# Shift and schedule
+
+# Choose your own hours
+# Encouraged to apply
+# Fair chance
+# &nbsp;
+# Full job description
+
+# Simplify
+# Simplify
+# 3 of 10 keywords
+# Beta
+# 30%
+# resume match
+# About us
+
+# We are a family owned construction company focused on using technology to improve Teamwork, Safety, Quality, and Efficiency.
+
+# We build the best tools we can for our in-house crews, then turn around and share those tools with our industry of small residential accessory building contractors.
+
+# Develop from Home
+
+# Job Overview:
+
+# We are seeking an ambitious junior freelance software developer to join our team. Features will initially be provided by a manager, but could be developed independently in collaboration with salespeople, job foremen and administrators if you'd like to become more involved.
+
+# Duties:
+
+# - Develop and maintain our in-house construction, construction management, and HR applications. These are written in Excel, Excel VBA, Ruby on Rails, Heroku, S3, Sketchup, and Ruby for Sketchup.
+
+# - Ruby is hosted on Github. Excel and VBA are currently accessed via Sharepoint.
+
+# - One Goal is to transition all Excel & VBA to RoR
+
+# - Write clean, efficient, and well-documented code
+
+# - Conduct thorough testing and debugging of software applications
+
+# - Integrate software components and third-party APIs
+
+# - Troubleshoot and resolve software defects and issues
+
+# - Participate in code reviews to ensure code quality and adherence to coding standards
+
+# - interest in AI for productivity
+
+# Skills:
+
+# - Web Development with interest in RoR and Excel
+
+# - Experience with version control: Git and very basic Sharepoint
+
+# - Knowledge of application development methodologies and best practices
+
+# - Problem-solving and analytical skills
+
+# - Strong attention to detail and ability to prioritize tasks
+
+# If you are a junior freelance developer looking for an opportunity to work on innovative projects, we would love to hear from you. Apply now to join our dynamic team!
+
+# Job Types: Part-time, Contract
+
+# Pay: $40.00 - $50.00 per hour
+
+# Expected hours: 8 – 32 per week
+
+# Compensation package:
+
+# 1099 contract
+# Bonus opportunities
+# Hourly pay
+# Experience level:
+
+# 1 year
+# 2 years
+# Schedule:
+
+# Choose your own hours
+# People with a criminal record are encouraged to apply
+
+# Work Location: Remote
+# '''
