@@ -33,6 +33,10 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
 `pip install -r requirements.txt`
 
+### Update requirements.txt file
+Activate Virtual Environment and run:
+`pip freeze > requirements.txt` 
+
 ### Setting up PostgreSQL
 
 1. Install PostgreSQL and start the PostgreSQL service on your machine.
