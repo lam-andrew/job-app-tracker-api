@@ -92,7 +92,7 @@ Instructions on how to deploy the application on a live system, such as Heroku:
 
 ### Create a Heroku App
 
-- Execute `heroku create` to create a new app on Heroku. This command outputs the web URL for your application and a Git URL. Note down the web URL, as you'll need it to access your deployed application.
+- Execute `heroku create <app_name>` to create a new app on Heroku. This command outputs the web URL for your application and a Git URL. Note down the web URL, as you'll need it to access your deployed application.
 
 ### Set Up Environment Variables
 
