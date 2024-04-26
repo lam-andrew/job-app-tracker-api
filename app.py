@@ -5,7 +5,7 @@ from openai import OpenAI
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pytz
-from models import db, JobApplication
+from models import User, db, JobApplication
 from sqlalchemy import text
 
 app = Flask(__name__)
@@ -32,11 +32,33 @@ def test_db_connection():
         return jsonify({"message": "Database connection successful"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+@app.route('/create_user', methods=['POST'])
+def create_user():
+    data = request.json
+    user_id = data.get('googleId')
+    name = data.get('name')
+    email = data.get('email')
+    picture_url = data.get('picture')
+    
+    existing_user = User.query.get(user_id)
+    if existing_user:
+        return jsonify({"message": "User already exists"}), 200
+    
+    new_user = User(id=user_id, name=name, email=email, picture_url=picture_url)
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({"message": "New user created", "user_id": user_id}), 201
 
 
 @app.route('/jobs', methods=['GET'])
 def get_jobs():
-    jobs = JobApplication.query.all()
+    user_id = request.args.get('userId')  # Get userId from query parameters
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    jobs = JobApplication.query.filter_by(user_id=user_id).all()  # Filter by user_id
     return jsonify([{
         'id': job.id,
         'job_title': job.job_title,
@@ -62,6 +84,7 @@ with app.app_context():
 def insert_job():
     data = request.json  # Assuming JSON data is sent in the request body
     job_desc_input = data.get('job_desc_input')
+    user_id = data.get('user_id')
     timezone = pytz.timezone('America/New_York')
     current_date = datetime.now(timezone).strftime('%Y-%m-%d')
     print(f"CURRENT DATE: {current_date}")
@@ -96,6 +119,7 @@ def insert_job():
     "AdditionalDetails": {{
         "ApplicationLink": "<URL if available or null>"
     }}
+    "user_id": {user_id}
     }}
     '''
 
@@ -140,13 +164,14 @@ def insert_job():
         benefits=job_json.get("Benefits"),
         application_status=job_json.get("ApplicationStatus"),
         application_link=job_json.get("ApplicationLink"),
-        additional_details=job_json.get("AdditionalDetails")
+        additional_details=job_json.get("AdditionalDetails"),
+        user_id=user_id
     )
 
     db.session.add(new_job_application)
     db.session.commit()
 
-    return jsonify({"message": "Job application inserted successfully", "job_id": new_job_application.id, "job_json": job_json})
+    return jsonify({"message": "Job application inserted successfully", "job_id": new_job_application.id, "job_json": job_json, "user_id": user_id})
 
 @app.route('/jobs/<int:job_id>/status', methods=['PUT'])
 def update_job_status(job_id):

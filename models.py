@@ -3,6 +3,15 @@ from sqlalchemy.dialects.postgresql import JSONB
 
 db = SQLAlchemy()
 
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.String(255), primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False, unique=True)
+    picture_url = db.Column(db.String(255))
+    job_applications = db.relationship('JobApplication', back_populates='user')
+
+
 class JobApplication(db.Model):
     __tablename__ = 'job_applications'
     id = db.Column(db.Integer, primary_key=True)
@@ -19,3 +28,6 @@ class JobApplication(db.Model):
     application_status = db.Column(db.String(50), nullable=False)
     application_link = db.Column(db.Text, nullable=True)
     additional_details = db.Column(JSONB, nullable=True)
+    user_id = db.Column(db.String(255), db.ForeignKey('users.id'), nullable=True)
+
+    user = db.relationship('User', back_populates='job_applications')
