@@ -7,6 +7,7 @@ from flask_cors import CORS
 import pytz
 from models import User, db, JobApplication
 from sqlalchemy import text
+from sqlalchemy.exc import OperationalError
 
 app = Flask(__name__)
 CORS(app)
@@ -196,5 +197,9 @@ def update_job_status(job_id):
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()  # Ensure this is called within app context to setup db tables
+        # db.create_all()  # Ensure this is called within app context to setup db tables
+        try:
+            db.create_all()
+        except OperationalError as e:
+            print("An error occurred during table creation:", e)
     app.run(debug=True)
